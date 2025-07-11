@@ -6,6 +6,9 @@ from utils import extract_info, is_url
 from music import get_queue, playing_music
 from SongSelectView import SongSelect
 from discord.ui import View
+from keep_alive import keep_alive
+
+keep_alive()
 
 intents = discord.Intents.default()
 intents.message_content = True
