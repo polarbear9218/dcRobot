@@ -2,3 +2,4 @@ discord
 yt_dlp
 dotenv
 pycryptodome
+PyNaCl
