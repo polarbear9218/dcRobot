@@ -21,7 +21,15 @@ ffmpeg_options = {
 
 @bot.command()
 async def add(ctx, *, query: str):
-    ydl_opts = {'format': 'bestaudio/best', 'quiet': True, 'noplaylist': True, 'extract_flat': True, 'default_search': 'ytsearch5'}
+    ydl_opts = {'format': 'bestaudio/best',
+                'quiet': True, 
+                'noplaylist': True,
+                'sleep_interval': 1, 
+                'max_sleep_interval': 3, 
+                'retries': 3, 
+                'extract_flat': True, 
+                'default_search': 'ytsearch5'
+                }
 
     if is_url(query):
         info = await extract_info(query, ydl_opts)
@@ -67,7 +75,15 @@ async def play(ctx, *, query: str = None):
         vc.stop()
     queue = get_queue(ctx.guild)
 
-    ydl_opts = {'format': 'bestaudio/best', 'quiet': True, 'noplaylist': True, 'extract_flat': True}
+    ydl_opts = {
+        'format': 'bestaudio/best',
+        'quiet': True,
+        'noplaylist': True,
+        'sleep_interval': 1,
+        'max_sleep_interval': 3,
+        'retries': 3,
+        'extract_flat': True
+    }
 
     if query is None:
         if not queue:
